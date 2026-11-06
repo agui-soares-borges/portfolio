@@ -7,7 +7,6 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Case de Product Design: passagem de turno 100% digital no app Turno para 80 mil colaboradores da Vale em mais de 30 países.">
 <link rel="canonical" href="https://aguisoaresborges.com.br/passagem-de-turno.html">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23BE5622'/%3E%3Ctext x='29' y='45' font-family='Arial,sans-serif' font-weight='700' font-size='38' fill='%23FCF6EE' text-anchor='middle'%3Ea%3C/text%3E%3Ccircle cx='48' cy='42' r='4' fill='%23FCF6EE'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Montserrat+Alternates:wght@600;700&display=swap">
@@ -373,6 +372,29 @@ mark { background: var(--accent-soft); color: var(--ink); padding: 0 .2em; borde
   r.setAttribute('data-mode', mode);
 })();
 </script>
+<style id="v2">/* v2 cases (classic): original palette and theme; availability chip; no dark blocks inside the article */
+/* header: same as before, plus availability next to the language switch */
+.controls { align-items: center; }
+.avail { display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 14px; border-radius: 999px; background: var(--surface); font-size: 12px; font-weight: 500; color: var(--muted); white-space: nowrap; }
+.avail i { width: 7px; height: 7px; border-radius: 50%; background: #2FB574; box-shadow: 0 0 0 3px rgb(47 181 116 / .18); animation: av-pulse 2.4s ease-in-out infinite; }
+@keyframes av-pulse { 50% { box-shadow: 0 0 0 6px rgb(47 181 116 / .05); } }
+.next-d { display: block; margin-top: 6px; font-size: 13.5px; opacity: .72; max-width: 60ch; }
+@media (max-width: 860px) { .avail .long { display: none; } }
+@media (max-width: 560px) { .avail { display: none; } }
+@media (prefers-reduced-motion: reduce) { .avail i { animation: none; } }
+
+/* no dark blocks inside the cases: light surfaces with dark text */
+.problems > div, .constraints > div, .stats .stat, .roi, .pc-card { background: var(--surface); color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
+.problems > div *, .constraints > div *, .stats .stat *, .roi *, .pc-card * { color: inherit; }
+.problems > div b, .constraints > div b, .stats .stat b, .roi b, .pc-card b { color: var(--accent); }
+.problems > div span, .constraints > div span, .stats .stat span, .roi span, .roi p, .roi small, .pc-card span, .pc-card p { color: var(--muted); opacity: 1; }
+.roi-eq div { background: var(--bg); box-shadow: inset 0 0 0 1px var(--line); }
+.roi-eq .tot { background: var(--accent); }
+.roi-eq .tot b, .roi-eq .tot span { color: #FFFFFF; }
+.problems > div b span, .constraints > div b span, .stats .stat b span, .roi b span, .pc-card b span { color: inherit; }
+.problems > div b, .roi-eq div b { color: var(--accent); }
+.constraints > div p, .constraints > div h3, .constraints > div strong { color: var(--ink); }
+</style>
 </head>
 <body>
 
@@ -382,7 +404,7 @@ mark { background: var(--accent-soft); color: var(--ink); padding: 0 .2em; borde
       <a class="mark" href="./" id="home-link" aria-label="agui. Home">agui<b>.</b></a>
       <a class="back" href="./" id="back-link"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M9 2 4 7l5 5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-l="pt">Todos os projetos</span><span data-l="en">All projects</span></a>
     </div>
-    <div class="controls">
+    <div class="controls"><div class="avail"><i aria-hidden="true"></i><span data-l="pt">Disponível <span class="long">para novos projetos</span></span><span data-l="en">Open <span class="long">to new projects</span></span></div>
       <div class="seg" role="group" aria-label="Idioma / Language">
         <button type="button" data-lang="pt" aria-label="Português"><svg class="flag" viewBox="0 0 18 13" aria-hidden="true"><rect width="18" height="13" fill="#229E45"/><path d="M9 1.6 16 6.5 9 11.4 2 6.5z" fill="#F8E509"/><circle cx="9" cy="6.5" r="2.7" fill="#2B49A3"/></svg><span class="code">PT</span></button>
         <button type="button" data-lang="en" aria-label="English"><svg class="flag" viewBox="0 0 18 13" aria-hidden="true"><rect width="18" height="13" fill="#FFFFFF"/><g fill="#C9283E"><rect y="0" width="18" height="1"/><rect y="2" width="18" height="1"/><rect y="4" width="18" height="1"/><rect y="6" width="18" height="1"/><rect y="8" width="18" height="1"/><rect y="10" width="18" height="1"/><rect y="12" width="18" height="1"/></g><rect width="8" height="7" fill="#2B3A78"/></svg><span class="code">EN</span></button>
@@ -736,10 +758,6 @@ mark { background: var(--accent-soft); color: var(--ink); padding: 0 .2em; borde
   </div>
 
   <div class="wrap gut">
-    <a class="next" href="./" id="next-link">
-      <div><small><span data-l="pt">Voltar</span><span data-l="en">Back</span></small><b><span data-l="pt">Ver todos os projetos</span><span data-l="en">See all projects</span></b></div>
-      <span class="go" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 14 14"><path d="M5 2l5 5-5 5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-    </a>
     <footer class="foot">
       <span>Agui Soares Borges · Product Design Lead</span>
       <span><span class="muted">agui.soares.borges@gmail.com</span> · <a href="https://www.linkedin.com/in/aguisoaresborges" target="_blank" rel="noopener">LinkedIn ↗</a></span>
