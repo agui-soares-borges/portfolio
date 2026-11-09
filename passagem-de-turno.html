@@ -364,7 +364,7 @@ mark { background: var(--accent-soft); color: var(--ink); padding: 0 .2em; borde
 (function () {
   var r = document.documentElement;
   r.classList.add('js');
-  var lang = null; try { lang = localStorage.getItem('agui-lang'); } catch (e) {}
+  var lang = null; try { lang = localStorage.getItem('agui-lang'); } catch (e) {} try { var q = new URLSearchParams(location.search).get('lang'); if (q === 'en' || q === 'pt') { lang = q; localStorage.setItem('agui-lang', q); } } catch (e) {}
   if (!lang) lang = (navigator.language || 'pt').toLowerCase().indexOf('pt') === 0 ? 'pt' : 'en';
   r.lang = lang === 'en' ? 'en' : 'pt-BR';
   var mode = null; try { mode = sessionStorage.getItem('agui-mode'); } catch (e) {}

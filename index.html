@@ -753,7 +753,7 @@ html[lang="en"] [data-l="pt"], html[lang="pt-BR"] [data-l="en"] { display: none 
       copied: 'Email copied.', select: 'Email selected. Press Ctrl+C to copy.'
     }
   };
-  var lang = store('agui-lang') || ((navigator.language || 'pt').toLowerCase().indexOf('pt') === 0 ? 'pt' : 'en');
+  var lang = store('agui-lang') || ((navigator.language || 'pt').toLowerCase().indexOf('pt') === 0 ? 'pt' : 'en'); try { var q = new URLSearchParams(location.search).get('lang'); if (q === 'en' || q === 'pt') { lang = q; store('agui-lang', q); } } catch (e) {}
   function setLang(l) {
     lang = T[l] ? l : 'pt';
     var d = T[lang];
